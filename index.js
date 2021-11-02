@@ -32,6 +32,7 @@ async function verifyToken(req, res, next) {
 
         }
     }
+    next();
 }
 
 async function run() {
@@ -75,6 +76,7 @@ async function run() {
                 const query = { email: email }
                 const cursor = orderCollection.find(query);
                 const orders = await cursor.toArray();
+                console.log(orders);
                 res.json(orders);
             }
             else {
